@@ -20,6 +20,16 @@ const getTodoById = async (req, res) => {
   }
 }
 
+const getTodoWithCategory = async (req, res) => {
+  try {
+    const { id } = req.params
+    const result=await TodoServices.getWithCategories(id)
+    res.status(200).json(result)
+  } catch (error) {
+   res.status(400).json(error)
+  }
+}
+
 // const getTodoByTodoName = async (req, res) => {
 //   try {
 //     console.log(req.params)
@@ -67,5 +77,6 @@ module.exports = {
   createTodo,
   updateTodo,
   deleteTodo,
+  getTodoWithCategory,
 //   getUserByUserName,
 }

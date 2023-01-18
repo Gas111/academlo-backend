@@ -5,6 +5,7 @@ const {
   createTodo,
   updateTodo,
   deleteTodo,
+  getTodoWithCategory,
 //   gettodoBytodoName,
 } = require('../controllers/todos.controller')
 const router = Router()
@@ -12,6 +13,8 @@ const { getAllTodos } = require('../controllers/todos.controller')
 
 router.get('/todos', getAllTodos)
 router.get('/todos/:id', getTodoById)
+router.get('/todos/:id/category', getTodoWithCategory)
+
 // router.get('/todos/todoname/:todoname', gettodoBytodoName)
 router.post('/todos', createTodo)
 router.put('/todos/:id', updateTodo)

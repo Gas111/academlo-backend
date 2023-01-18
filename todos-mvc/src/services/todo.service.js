@@ -1,3 +1,5 @@
+const CategoriesInTasks = require('../models/categories.in.tasks.model')
+const Categories = require('../models/categories.model')
 const Todos = require('../models/todos.model')
 
 class TodoServices {
@@ -13,6 +15,15 @@ class TodoServices {
   static async getById(id) {
     try {
       const result = await Todos.findByPk(id)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async getWithCategories(id) {
+    try {
+      const result = await Todos.findOne({where:{id},include:{model:CategoriesInTasks,as:"category",include:{model:Categories, as:"category"}}})
       return result
     } catch (error) {
       throw error
