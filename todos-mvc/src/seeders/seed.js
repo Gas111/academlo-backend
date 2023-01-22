@@ -47,7 +47,7 @@ const categoriesInTasks = [
   },
 ]
 
-db.sync({ force: true }) //es para crear todo desde cero(true toma de nuevo los valores)
+db.sync({ force:false }) //es para crear todo desde cero(true toma de nuevo los valores)
   .then(() => {
     console.log('inicio')
     users.forEach((user) => Users.create(user))
