@@ -1,5 +1,6 @@
 const {Router}=require("express")
 const {addToCart} = require("../controllers/car.controller")
+const authMiddleware = require("../middlewares/auth.middleware")
 const router=Router()
 
 /**
@@ -47,6 +48,6 @@ const router=Router()
 
 
 // router.post("/",addToCart)
-router.post("/:id",addToCart)
+router.post("/:id",authMiddleware,addToCart)
 
 module.exports=router

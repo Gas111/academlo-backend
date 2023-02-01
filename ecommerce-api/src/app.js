@@ -8,6 +8,7 @@ const authRoutes=require("./routes/auth.routes")
 const productRoutes=require("./routes/product.routes")
 const carRoutes=require("./routes/car.routes")
 const transporter = require("./utils/mailer")
+const authMiddleware = require("./middlewares/auth.middleware")
 
 app.use(express.json())
 app.use(cors()) //origens x
@@ -41,6 +42,6 @@ app.use(morgan("tiny")) //velocity and log
 // sendEmail()
 
 app.use("/api/v1/auth",authRoutes)
-app.use("/api/v1/product",productRoutes)
-app.use("/api/v1/cart",carRoutes)
+app.use("/api/v1/product",authMiddleware, productRoutes)
+app.use("/api/v1/cart",authMiddleware, carRoutes)
 module.exports=app
