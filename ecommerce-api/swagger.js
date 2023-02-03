@@ -20,7 +20,7 @@ const options = {
     info: {
       title: 'Ecommerce - node js',
       version: '1.0.0',
-      description: 'API para ecommerce',
+      description: 'API para ecommerce made by GASTON COLQUE',
     },
   },
 }
