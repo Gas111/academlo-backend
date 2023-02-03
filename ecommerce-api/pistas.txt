@@ -9,3 +9,6 @@ luego los borro.
 
 a penas se registra se crea el carrito tambien, pq la relacion es 1 a 1. 
 
+
+
+

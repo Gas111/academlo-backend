@@ -11,6 +11,9 @@ const options = {
     './src/models/product_in_cart.js',
     './src/routes/car.routes.js',
     './src/models/car.js',
+    './src/models/order.js',
+    './src/routes/order.routes.js',
+    
   ],
   definition: {
     openapi: '3.0.0',
@@ -26,8 +29,10 @@ const swaggerSpec = swaggerJSDoc(options)
 
 const swaggerDocs = (app, port) => {
   // generar la ruta donde se mostrara la documentacion.
-  app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
-  app.get('/api/v1/docs.json', (req, res) => {
+  // app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+  app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+ 
+  app.get('/docs.json', (req, res) => {
     res.setHeader({ 'Content-Type': 'application/json' })
     res.send(swaggerSpec)
   })
